@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Data and Methodology | A Spatiotemporal Analysis on the Correlation between Baseflow and Peak Snow Water Equivalent in Colorado</title>
+  <meta name="description" content="This is a summary of my senior capstone project and independent research." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Data and Methodology | A Spatiotemporal Analysis on the Correlation between Baseflow and Peak Snow Water Equivalent in Colorado" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a summary of my senior capstone project and independent research." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Data and Methodology | A Spatiotemporal Analysis on the Correlation between Baseflow and Peak Snow Water Equivalent in Colorado" />
+  
+  <meta name="twitter:description" content="This is a summary of my senior capstone project and independent research." />
+  
+
+<meta name="author" content="Helen Flynn" />
+
+
+<meta name="date" content="2023-05-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="results.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">WR 440: Final Project</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="2" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i><b>2</b> Abstract</a></li>
+<li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>3</b> Intro</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i><b>3.1</b> Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-and-methodology.html"><a href="data-and-methodology.html"><i class="fa fa-check"></i><b>4</b> Data and Methodology</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-and-methodology.html"><a href="data-and-methodology.html#data"><i class="fa fa-check"></i><b>4.1</b> Data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-and-methodology.html"><a href="data-and-methodology.html#methods"><i class="fa fa-check"></i><b>4.2</b> Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a></li>
+<li class="chapter" data-level="6" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>6</b> Discussion</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="discussion.html"><a href="discussion.html#conclusion"><i class="fa fa-check"></i><b>6.1</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Spatiotemporal Analysis on the Correlation between Baseflow and Peak Snow Water Equivalent in Colorado</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-and-methodology" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Data and Methodology<a href="data-and-methodology.html#data-and-methodology" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Load packages</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-and-methodology.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="data-and-methodology.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-3"><a href="data-and-methodology.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb1-4"><a href="data-and-methodology.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb1-5"><a href="data-and-methodology.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-6"><a href="data-and-methodology.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-7"><a href="data-and-methodology.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataRetrieval)</span>
+<span id="cb1-8"><a href="data-and-methodology.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-9"><a href="data-and-methodology.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapview)</span>
+<span id="cb1-10"><a href="data-and-methodology.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-11"><a href="data-and-methodology.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-12"><a href="data-and-methodology.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb1-13"><a href="data-and-methodology.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fuzzyjoin)</span>
+<span id="cb1-14"><a href="data-and-methodology.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furrr)</span>
+<span id="cb1-15"><a href="data-and-methodology.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;snotelr&quot;</span>)</span>
+<span id="cb1-16"><a href="data-and-methodology.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-17"><a href="data-and-methodology.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span>
+<span id="cb1-18"><a href="data-and-methodology.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb1-19"><a href="data-and-methodology.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tigris)</span>
+<span id="cb1-20"><a href="data-and-methodology.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(elevatr)</span>
+<span id="cb1-21"><a href="data-and-methodology.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span></code></pre></div>
+<div id="data" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Data<a href="data-and-methodology.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To analyze the correlation between peak SWE and baseflow, discharge data from 13 USGS gauges in the Southern Rockies of Colorado were examined from October 1st, 1979, to September 30th, 2022. Stations with greater than ten percent missing data during the time period were excluded. The drainage basins that contain each stream gauge vary in latitude, elevation and area (Table 1). Each stream gauge was paired with an NRCS SNOTEL station within or just outside the drainage basin (Table 1). When the nearest SNOTEL station was lacking data, another nearby station was selected based on the clusters defined by Fassnacht and Derry (2010). Peak SWE data from the SNOTEL stations were used.</p>
+<div class="figure">
+<img src="tab1.jpg" alt="" />
+<p class="caption">Table 1: the USGS and SNOTEL station pairs in order of northern-most latitude to southern-most.</p>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-and-methodology.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#download the streamflow data</span></span>
+<span id="cb2-2"><a href="data-and-methodology.html#cb2-2" aria-hidden="true" tabindex="-1"></a>streamstations <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;06614800&quot;</span>,</span>
+<span id="cb2-3"><a href="data-and-methodology.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09032100&quot;</span>,</span>
+<span id="cb2-4"><a href="data-and-methodology.html#cb2-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09034900&quot;</span>,</span>
+<span id="cb2-5"><a href="data-and-methodology.html#cb2-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09165000&quot;</span>,</span>
+<span id="cb2-6"><a href="data-and-methodology.html#cb2-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09238900&quot;</span>,</span>
+<span id="cb2-7"><a href="data-and-methodology.html#cb2-7" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09112200&quot;</span>,</span>
+<span id="cb2-8"><a href="data-and-methodology.html#cb2-8" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09107000&quot;</span>,</span>
+<span id="cb2-9"><a href="data-and-methodology.html#cb2-9" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09081600&quot;</span>,</span>
+<span id="cb2-10"><a href="data-and-methodology.html#cb2-10" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09066300&quot;</span>,</span>
+<span id="cb2-11"><a href="data-and-methodology.html#cb2-11" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;08246500&quot;</span>,</span>
+<span id="cb2-12"><a href="data-and-methodology.html#cb2-12" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;09073300&quot;</span>,</span>
+<span id="cb2-13"><a href="data-and-methodology.html#cb2-13" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;07083000&quot;</span>)</span>
+<span id="cb2-14"><a href="data-and-methodology.html#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="data-and-methodology.html#cb2-15" aria-hidden="true" tabindex="-1"></a>sitedata <span class="ot">&lt;-</span> <span class="fu">readNWISdv</span>(<span class="at">siteNumber =</span> streamstations, <span class="at">parameterCd =</span> <span class="st">&quot;00060&quot;</span>,</span>
+<span id="cb2-16"><a href="data-and-methodology.html#cb2-16" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;1979-10-01&quot;</span>, <span class="st">&quot;2022-09-30&quot;</span>)</span>
+<span id="cb2-17"><a href="data-and-methodology.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="data-and-methodology.html#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#create index column and remove cd column</span></span>
+<span id="cb2-19"><a href="data-and-methodology.html#cb2-19" aria-hidden="true" tabindex="-1"></a>sitedata <span class="ot">&lt;-</span> sitedata <span class="sc">%&gt;%</span> </span>
+<span id="cb2-20"><a href="data-and-methodology.html#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">index =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(sitedata)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-21"><a href="data-and-methodology.html#cb2-21" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(agency_cd, site_no, Date, X_00060_00003, index)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-22"><a href="data-and-methodology.html#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addWaterYear</span>()</span>
+<span id="cb2-23"><a href="data-and-methodology.html#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="data-and-methodology.html#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#convert to mm/d and clean up columns</span></span>
+<span id="cb2-25"><a href="data-and-methodology.html#cb2-25" aria-hidden="true" tabindex="-1"></a>station_met <span class="ot">&lt;-</span> <span class="fu">readNWISsite</span>(streamstations)</span>
+<span id="cb2-26"><a href="data-and-methodology.html#cb2-26" aria-hidden="true" tabindex="-1"></a>station_met_clean <span class="ot">&lt;-</span> station_met <span class="sc">%&gt;%</span> </span>
+<span id="cb2-27"><a href="data-and-methodology.html#cb2-27" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">&#39;agency_cd&#39;</span>,<span class="st">&#39;site_no&#39;</span>, <span class="st">&#39;drain_area_va&#39;</span>)</span>
+<span id="cb2-28"><a href="data-and-methodology.html#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="data-and-methodology.html#cb2-29" aria-hidden="true" tabindex="-1"></a>sitedata_join <span class="ot">&lt;-</span> sitedata <span class="sc">%&gt;%</span> </span>
+<span id="cb2-30"><a href="data-and-methodology.html#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(.,station_met_clean, <span class="at">by =</span> <span class="st">&quot;site_no&quot;</span>)</span>
+<span id="cb2-31"><a href="data-and-methodology.html#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="data-and-methodology.html#cb2-32" aria-hidden="true" tabindex="-1"></a>sitedata_join <span class="ot">&lt;-</span> sitedata_join <span class="sc">%&gt;%</span> </span>
+<span id="cb2-33"><a href="data-and-methodology.html#cb2-33" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(index, <span class="at">agency =</span> agency_cd.x, site_no, Date, <span class="at">q_cfs =</span> X_00060_00003, drain_area_va, <span class="at">WY =</span> waterYear)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-34"><a href="data-and-methodology.html#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">da_km =</span> drain_area_va <span class="sc">*</span> <span class="fl">2.58999</span>, <span class="at">q_mmd =</span> (q_cfs <span class="sc">*</span> <span class="fl">0.0283168</span> <span class="sc">*</span> <span class="fl">86.4</span>)<span class="sc">/</span>da_km)</span>
+<span id="cb2-35"><a href="data-and-methodology.html#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="data-and-methodology.html#cb2-36" aria-hidden="true" tabindex="-1"></a>sitedata_clean <span class="ot">&lt;-</span> sitedata_join <span class="sc">%&gt;%</span> </span>
+<span id="cb2-37"><a href="data-and-methodology.html#cb2-37" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(index, agency, site_no, Date, WY, q_mmd))</span>
+<span id="cb2-38"><a href="data-and-methodology.html#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="data-and-methodology.html#cb2-39" aria-hidden="true" tabindex="-1"></a>sitedata_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&#39;data/sitedata_clean.csv&#39;</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Below is a map of the station pair locations in the state of Colorado.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-and-methodology.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#USGS guage map</span></span>
+<span id="cb3-2"><a href="data-and-methodology.html#cb3-2" aria-hidden="true" tabindex="-1"></a>readyforsf <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;~/WR440/WR440/data/stationmetadata.xlsx&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="data-and-methodology.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(stationtype <span class="sc">==</span> <span class="st">&quot;USGS&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="data-and-methodology.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(., <span class="at">Longitude =</span> dec_long_va, <span class="at">Latitude =</span> dec_lat_va, <span class="at">Site =</span> stationcode) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="data-and-methodology.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(., <span class="fu">c</span>(<span class="st">&quot;Latitude&quot;</span>,<span class="st">&quot;Longitude&quot;</span>,<span class="st">&quot;pairname&quot;</span>))</span>
+<span id="cb3-6"><a href="data-and-methodology.html#cb3-6" aria-hidden="true" tabindex="-1"></a>usgs_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(readyforsf, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>,<span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb3-7"><a href="data-and-methodology.html#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="data-and-methodology.html#cb3-8" aria-hidden="true" tabindex="-1"></a>co <span class="ot">&lt;-</span> tigris<span class="sc">::</span><span class="fu">states</span>(<span class="st">&quot;CO&quot;</span>, <span class="at">year =</span> <span class="st">&quot;2000&quot;</span>, <span class="at">cb =</span> <span class="cn">TRUE</span>, <span class="at">resolution =</span> <span class="st">&quot;500k&quot;</span>, <span class="at">progress_bar =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="data-and-methodology.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">&quot;Colorado&quot;</span>)</span>
+<span id="cb3-10"><a href="data-and-methodology.html#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="data-and-methodology.html#cb3-11" aria-hidden="true" tabindex="-1"></a>elev <span class="ot">&lt;-</span> <span class="fu">get_elev_raster</span>(co, <span class="at">z =</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="data-and-methodology.html#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">crop</span>(co)</span>
+<span id="cb3-13"><a href="data-and-methodology.html#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="data-and-methodology.html#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">qtm</span>(co) <span class="sc">+</span> </span>
+<span id="cb3-15"><a href="data-and-methodology.html#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(elev) <span class="sc">+</span> </span>
+<span id="cb3-16"><a href="data-and-methodology.html#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_raster</span>(<span class="at">style =</span> <span class="st">&#39;cont&#39;</span>,</span>
+<span id="cb3-17"><a href="data-and-methodology.html#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">palette =</span> <span class="st">&#39;-YlGnBu&#39;</span>, <span class="at">n =</span> <span class="dv">5</span>,</span>
+<span id="cb3-18"><a href="data-and-methodology.html#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.show =</span> F)  <span class="sc">+</span> </span>
+<span id="cb3-19"><a href="data-and-methodology.html#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(usgs_sf) <span class="sc">+</span> </span>
+<span id="cb3-20"><a href="data-and-methodology.html#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_bubbles</span>(<span class="at">col =</span> <span class="st">&quot;gray20&quot;</span>, <span class="at">size =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb3-21"><a href="data-and-methodology.html#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(usgs_sf)<span class="sc">+</span></span>
+<span id="cb3-22"><a href="data-and-methodology.html#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_text</span>(<span class="st">&quot;pairname&quot;</span>, <span class="at">just =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">xmod =</span> <span class="fl">0.75</span>, <span class="at">ymod =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="methods" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Methods<a href="data-and-methodology.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In snow dominated watersheds, the hydrograph demonstrates a large peak occurring at the onset of melt that eventually levels off at lower values for most of the rest of the year. The traditional water year (WY, in the US October 1 through September 30) separates peak melt and baseflow into two different WYs. To reflect the hydrologic processes that are occurring in snow-dominated watersheds, we propose using a melt year (MY) beginning with the onset of snowmelt (the first deviation from baseflow) and ending with the onset of the following year’s snowmelt (Figure 2). The beginning of the MY was defined as the day at which the rate of increase in discharge changes.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-and-methodology.html#cb4-1" aria-hidden="true" tabindex="-1"></a>avg_val <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&#39;data/avg_val.csv&#39;</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-2"><a href="data-and-methodology.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="data-and-methodology.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#find the standard deviation of average baseflow values at each station</span></span>
+<span id="cb4-4"><a href="data-and-methodology.html#cb4-4" aria-hidden="true" tabindex="-1"></a>stdev <span class="ot">&lt;-</span> avg_val <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="data-and-methodology.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&#39;site_no&#39;</span>, <span class="at">values_from =</span> <span class="st">&#39;avg_qbase&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="data-and-methodology.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(sd, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-7"><a href="data-and-methodology.html#cb4-7" aria-hidden="true" tabindex="-1"></a>stdev <span class="ot">&lt;-</span> stdev <span class="sc">%&gt;%</span> </span>
+<span id="cb4-8"><a href="data-and-methodology.html#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="data-and-methodology.html#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">bf_sd =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-10"><a href="data-and-methodology.html#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">&#39;site_no&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-11"><a href="data-and-methodology.html#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(site_no <span class="sc">!=</span> <span class="st">&#39;my&#39;</span>)</span>
+<span id="cb4-12"><a href="data-and-methodology.html#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="data-and-methodology.html#cb4-13" aria-hidden="true" tabindex="-1"></a>readyforcorrel <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/readyforcorrel.csv&quot;</span>)</span>
+<span id="cb4-14"><a href="data-and-methodology.html#cb4-14" aria-hidden="true" tabindex="-1"></a>stdevsno <span class="ot">&lt;-</span> readyforcorrel <span class="sc">%&gt;%</span> </span>
+<span id="cb4-15"><a href="data-and-methodology.html#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&#39;site_no&#39;</span>, <span class="at">values_from =</span> <span class="st">&#39;max_swe&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-16"><a href="data-and-methodology.html#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(sd, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-17"><a href="data-and-methodology.html#cb4-17" aria-hidden="true" tabindex="-1"></a>stdevsno <span class="ot">&lt;-</span> stdevsno <span class="sc">%&gt;%</span> </span>
+<span id="cb4-18"><a href="data-and-methodology.html#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-19"><a href="data-and-methodology.html#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">swe_sd =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-20"><a href="data-and-methodology.html#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">&#39;site_no&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-21"><a href="data-and-methodology.html#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(site_no <span class="sc">!=</span> <span class="fu">c</span>(<span class="st">&#39;my&#39;</span>,<span class="st">&#39;q_mmd&#39;</span>,<span class="st">&#39;pairname&#39;</span>,<span class="st">&#39;paircode&#39;</span>,<span class="st">&#39;site_id&#39;</span>))</span>
+<span id="cb4-22"><a href="data-and-methodology.html#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="data-and-methodology.html#cb4-23" aria-hidden="true" tabindex="-1"></a>sd_join <span class="ot">&lt;-</span> stdev <span class="sc">%&gt;%</span> </span>
+<span id="cb4-24"><a href="data-and-methodology.html#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(stdevsno, <span class="at">by =</span> <span class="st">&quot;site_no&quot;</span>)</span>
+<span id="cb4-25"><a href="data-and-methodology.html#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="data-and-methodology.html#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(sd_join, <span class="at">file =</span> <span class="st">&#39;data/sd_join.RData&#39;</span>)</span>
+<span id="cb4-27"><a href="data-and-methodology.html#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&#39;data/sd_join.RData&#39;</span>)</span>
+<span id="cb4-28"><a href="data-and-methodology.html#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="data-and-methodology.html#cb4-29" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> readyforcorrel <span class="sc">%&gt;%</span> </span>
+<span id="cb4-30"><a href="data-and-methodology.html#cb4-30" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(q_mmd,site_no,max_swe) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-31"><a href="data-and-methodology.html#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-32"><a href="data-and-methodology.html#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_all</span>(<span class="fu">funs</span>(<span class="fu">mean</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb4-33"><a href="data-and-methodology.html#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="data-and-methodology.html#cb4-34" aria-hidden="true" tabindex="-1"></a>sd_join <span class="ot">&lt;-</span> sd_join <span class="sc">%&gt;%</span> </span>
+<span id="cb4-35"><a href="data-and-methodology.html#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bf_cov =</span> sd_join<span class="sc">$</span>bf_sd <span class="sc">/</span> means<span class="sc">$</span>q_mmd,</span>
+<span id="cb4-36"><a href="data-and-methodology.html#cb4-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">swe_cov =</span> sd_join<span class="sc">$</span>swe_sd <span class="sc">/</span> means<span class="sc">$</span>max_swe)</span>
+<span id="cb4-37"><a href="data-and-methodology.html#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="data-and-methodology.html#cb4-38" aria-hidden="true" tabindex="-1"></a>snobox <span class="ot">&lt;-</span> readyforcorrel <span class="sc">%&gt;%</span> </span>
+<span id="cb4-39"><a href="data-and-methodology.html#cb4-39" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(q_mmd, pairname, max_swe, my)</span>
+<span id="cb4-40"><a href="data-and-methodology.html#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="data-and-methodology.html#cb4-41" aria-hidden="true" tabindex="-1"></a>snobox <span class="ot">&lt;-</span> snobox <span class="sc">%&gt;%</span> </span>
+<span id="cb4-42"><a href="data-and-methodology.html#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&#39;max_swe&#39;</span>,<span class="st">&#39;q_mmd&#39;</span>), <span class="at">names_to =</span> <span class="st">&#39;id&#39;</span>, <span class="at">values_to =</span> <span class="st">&#39;value&#39;</span>)</span>
+<span id="cb4-43"><a href="data-and-methodology.html#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="data-and-methodology.html#cb4-44" aria-hidden="true" tabindex="-1"></a>snobox2 <span class="ot">&lt;-</span> snobox <span class="sc">%&gt;%</span> </span>
+<span id="cb4-45"><a href="data-and-methodology.html#cb4-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">changed =</span> <span class="fu">case_when</span>(id <span class="sc">==</span> <span class="st">&#39;max_swe&#39;</span> <span class="sc">~</span> value <span class="sc">/</span> <span class="dv">1333</span>, </span>
+<span id="cb4-46"><a href="data-and-methodology.html#cb4-46" aria-hidden="true" tabindex="-1"></a>                            id <span class="sc">==</span> <span class="st">&#39;q_mmd&#39;</span> <span class="sc">~</span> value))</span>
+<span id="cb4-47"><a href="data-and-methodology.html#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="data-and-methodology.html#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(snobox2, <span class="fu">aes</span>(<span class="at">x=</span>pairname)) <span class="sc">+</span></span>
+<span id="cb4-49"><a href="data-and-methodology.html#cb4-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-50"><a href="data-and-methodology.html#cb4-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>( <span class="fu">aes</span>(<span class="at">y=</span>changed,<span class="at">color =</span> id)) <span class="sc">+</span> </span>
+<span id="cb4-51"><a href="data-and-methodology.html#cb4-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-52"><a href="data-and-methodology.html#cb4-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb4-53"><a href="data-and-methodology.html#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Average Baseflow (mm/d)&quot;</span>,</span>
+<span id="cb4-54"><a href="data-and-methodology.html#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span><span class="dv">1333</span>, <span class="at">name=</span><span class="st">&quot;Peak SWE (mm)&quot;</span>  ))<span class="sc">+</span></span>
+<span id="cb4-55"><a href="data-and-methodology.html#cb4-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Pairname&quot;</span>)<span class="sc">+</span></span>
+<span id="cb4-56"><a href="data-and-methodology.html#cb4-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust=</span><span class="dv">1</span>),</span>
+<span id="cb4-57"><a href="data-and-methodology.html#cb4-57" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>,<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>), </span>
+<span id="cb4-58"><a href="data-and-methodology.html#cb4-58" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb4-59"><a href="data-and-methodology.html#cb4-59" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
+<span id="cb4-60"><a href="data-and-methodology.html#cb4-60" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>),</span>
+<span id="cb4-61"><a href="data-and-methodology.html#cb4-61" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="fu">c</span>(.<span class="dv">98</span>, .<span class="dv">98</span>))<span class="sc">+</span></span>
+<span id="cb4-62"><a href="data-and-methodology.html#cb4-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">&quot;Figure 2: The above figure depicts the variance in average baseflow on </span><span class="sc">\n</span><span class="st"> the left y-axis and the variance in peak SWE on the right y-axis across the station pairs.&quot;</span>)<span class="sc">+</span></span>
+<span id="cb4-63"><a href="data-and-methodology.html#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>To find the onset of melt, the cumulative sum of the runoff was calculated for each water year. Using the cumulative sum, the onset of melt was selected as the first day when the daily slope was K times greater than the baseflow slope. The constant K was determined to be 6 after testing other values in order to ensure that an onset of melt date was selected for a reasonable time frame. The baseflow slope was calculated between January 1 and March 31.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-and-methodology.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create empty df to store MY results</span></span>
+<span id="cb5-2"><a href="data-and-methodology.html#cb5-2" aria-hidden="true" tabindex="-1"></a>columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;site_no&quot;</span>, <span class="st">&quot;MY_start&quot;</span>)</span>
+<span id="cb5-3"><a href="data-and-methodology.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="data-and-methodology.html#cb5-4" aria-hidden="true" tabindex="-1"></a>avg_qbase_results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">nrow =</span> <span class="dv">0</span>, <span class="at">ncol =</span> <span class="fu">length</span>(columns))) </span>
+<span id="cb5-5"><a href="data-and-methodology.html#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="data-and-methodology.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(avg_qbase_results) <span class="ot">=</span> columns</span>
+<span id="cb5-7"><a href="data-and-methodology.html#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="data-and-methodology.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Onset of melt occurs when the daily slope of cumulative baseflow * K = daily slope of cumulative runoff</span></span>
+<span id="cb5-9"><a href="data-and-methodology.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#finds one slope value per year for baseflow (Jan1-March31)</span></span>
+<span id="cb5-10"><a href="data-and-methodology.html#cb5-10" aria-hidden="true" tabindex="-1"></a>winter_nest <span class="ot">&lt;-</span> sitedata_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb5-11"><a href="data-and-methodology.html#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(Date), </span>
+<span id="cb5-12"><a href="data-and-methodology.html#cb5-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">day =</span> <span class="fu">yday</span>(Date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-13"><a href="data-and-methodology.html#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(site_no, WY)  <span class="sc">%&gt;%</span> </span>
+<span id="cb5-14"><a href="data-and-methodology.html#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cs_WY =</span> <span class="fu">cumsum</span>(q_mmd)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-15"><a href="data-and-methodology.html#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date) <span class="sc">%&gt;%</span></span>
+<span id="cb5-16"><a href="data-and-methodology.html#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-17"><a href="data-and-methodology.html#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(site_no, Date) <span class="sc">%&gt;%</span></span>
+<span id="cb5-18"><a href="data-and-methodology.html#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() </span>
+<span id="cb5-19"><a href="data-and-methodology.html#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="data-and-methodology.html#cb5-20" aria-hidden="true" tabindex="-1"></a>winter_bflow <span class="ot">&lt;-</span> winter_nest <span class="sc">%&gt;%</span></span>
+<span id="cb5-21"><a href="data-and-methodology.html#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mods =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(cs_WY <span class="sc">~</span> day, <span class="at">data =</span> .x))) <span class="sc">%&gt;%</span></span>
+<span id="cb5-22"><a href="data-and-methodology.html#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">slope =</span> <span class="fu">map</span>(mods, broom<span class="sc">::</span>tidy)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-23"><a href="data-and-methodology.html#cb5-23" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>mods,<span class="sc">-</span>data) <span class="sc">%&gt;%</span></span>
+<span id="cb5-24"><a href="data-and-methodology.html#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(slope) <span class="sc">%&gt;%</span></span>
+<span id="cb5-25"><a href="data-and-methodology.html#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">&#39;day&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-26"><a href="data-and-methodology.html#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">baseslope =</span> estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-27"><a href="data-and-methodology.html#cb5-27" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(site_no, WY, baseslope)<span class="sc">%&gt;%</span> </span>
+<span id="cb5-28"><a href="data-and-methodology.html#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">K_base12 =</span> baseslope <span class="sc">*</span> <span class="dv">12</span>,</span>
+<span id="cb5-29"><a href="data-and-methodology.html#cb5-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">K_base10 =</span> baseslope <span class="sc">*</span> <span class="dv">10</span>,</span>
+<span id="cb5-30"><a href="data-and-methodology.html#cb5-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">K_base6 =</span> baseslope <span class="sc">*</span> <span class="dv">6</span>)</span>
+<span id="cb5-31"><a href="data-and-methodology.html#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="data-and-methodology.html#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#need one slope value per day not per year like winter_bflow</span></span>
+<span id="cb5-33"><a href="data-and-methodology.html#cb5-33" aria-hidden="true" tabindex="-1"></a>snowmelt_nest <span class="ot">&lt;-</span> sitedata_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb5-34"><a href="data-and-methodology.html#cb5-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(Date), </span>
+<span id="cb5-35"><a href="data-and-methodology.html#cb5-35" aria-hidden="true" tabindex="-1"></a>         <span class="at">day =</span> <span class="fu">yday</span>(Date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-36"><a href="data-and-methodology.html#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no, WY)  <span class="sc">%&gt;%</span></span>
+<span id="cb5-37"><a href="data-and-methodology.html#cb5-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cs_WY =</span> <span class="fu">cumsum</span>(q_mmd)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-38"><a href="data-and-methodology.html#cb5-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(site_no, Date) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-39"><a href="data-and-methodology.html#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month <span class="sc">%in%</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-40"><a href="data-and-methodology.html#cb5-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(site_no, Date) </span>
+<span id="cb5-41"><a href="data-and-methodology.html#cb5-41" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-42"><a href="data-and-methodology.html#cb5-42" aria-hidden="true" tabindex="-1"></a>dailyslope <span class="ot">&lt;-</span> snowmelt_nest <span class="sc">%&gt;%</span> </span>
+<span id="cb5-43"><a href="data-and-methodology.html#cb5-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dailys =</span> cs_WY <span class="sc">-</span> <span class="fu">lag</span>(cs_WY)) </span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-and-methodology.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#when dailyslope &gt;= baseslope *12, pull min date</span></span>
+<span id="cb6-2"><a href="data-and-methodology.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(baseslope * 12 &gt;= dailyslope, Date(need first occurrence), &quot;&quot;)</span></span>
+<span id="cb6-3"><a href="data-and-methodology.html#cb6-3" aria-hidden="true" tabindex="-1"></a>pickonset <span class="ot">&lt;-</span> dailyslope <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="data-and-methodology.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(winter_bflow, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;WY&#39;</span>, <span class="st">&#39;site_no&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="data-and-methodology.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start =</span> <span class="fu">if_else</span>(dailys <span class="sc">&gt;=</span> K_base6, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb6-6"><a href="data-and-methodology.html#cb6-6" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb6-7"><a href="data-and-methodology.html#cb6-7" aria-hidden="true" tabindex="-1"></a>avg_qbase <span class="ot">&lt;-</span> pickonset <span class="sc">%&gt;%</span> </span>
+<span id="cb6-8"><a href="data-and-methodology.html#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(start <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-9"><a href="data-and-methodology.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no, <span class="at">year =</span> <span class="fu">year</span>(Date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-10"><a href="data-and-methodology.html#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MY_start =</span> <span class="fu">min</span>(Date))</span>
+<span id="cb6-11"><a href="data-and-methodology.html#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="data-and-methodology.html#cb6-12" aria-hidden="true" tabindex="-1"></a>avg_qbase_results <span class="ot">&lt;-</span> avg_qbase <span class="sc">%&gt;%</span> </span>
+<span id="cb6-13"><a href="data-and-methodology.html#cb6-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(site_no, MY_start, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-14"><a href="data-and-methodology.html#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">my =</span> <span class="fu">year</span>(MY_start)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-15"><a href="data-and-methodology.html#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-16"><a href="data-and-methodology.html#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(site_no, my, <span class="at">.keep_all =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb6-17"><a href="data-and-methodology.html#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MY_end =</span> dplyr<span class="sc">::</span><span class="fu">lead</span>(MY_start,<span class="dv">1</span>)<span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-18"><a href="data-and-methodology.html#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">my_length =</span> MY_end <span class="sc">-</span> MY_start) </span>
+<span id="cb6-19"><a href="data-and-methodology.html#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="data-and-methodology.html#cb6-20" aria-hidden="true" tabindex="-1"></a>faster_joinery <span class="ot">&lt;-</span> <span class="cf">function</span>(one_place, one_site ){</span>
+<span id="cb6-21"><a href="data-and-methodology.html#cb6-21" aria-hidden="true" tabindex="-1"></a>  one_place <span class="sc">%&gt;%</span></span>
+<span id="cb6-22"><a href="data-and-methodology.html#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb6-23"><a href="data-and-methodology.html#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fuzzy_left_join</span>(one_site,</span>
+<span id="cb6-24"><a href="data-and-methodology.html#cb6-24" aria-hidden="true" tabindex="-1"></a>                  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;Date&#39;</span> <span class="ot">=</span> <span class="st">&#39;MY_start&#39;</span>,</span>
+<span id="cb6-25"><a href="data-and-methodology.html#cb6-25" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&#39;Date&#39;</span> <span class="ot">=</span> <span class="st">&#39;MY_end&#39;</span>),</span>
+<span id="cb6-26"><a href="data-and-methodology.html#cb6-26" aria-hidden="true" tabindex="-1"></a>                  <span class="at">match_fun =</span> <span class="fu">list</span>(<span class="st">`</span><span class="at">&gt;=</span><span class="st">`</span>,<span class="st">`</span><span class="at">&lt;=</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-27"><a href="data-and-methodology.html#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(my))</span>
+<span id="cb6-28"><a href="data-and-methodology.html#cb6-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-29"><a href="data-and-methodology.html#cb6-29" aria-hidden="true" tabindex="-1"></a>site_my_bundle <span class="ot">&lt;-</span> sitedata_clean <span class="sc">%&gt;%</span></span>
+<span id="cb6-30"><a href="data-and-methodology.html#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no) <span class="sc">%&gt;%</span></span>
+<span id="cb6-31"><a href="data-and-methodology.html#cb6-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>()</span>
+<span id="cb6-32"><a href="data-and-methodology.html#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="data-and-methodology.html#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="data-and-methodology.html#cb6-34" aria-hidden="true" tabindex="-1"></a>sitedata_q_bundle <span class="ot">&lt;-</span> avg_qbase_results <span class="sc">%&gt;%</span></span>
+<span id="cb6-35"><a href="data-and-methodology.html#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no) <span class="sc">%&gt;%</span></span>
+<span id="cb6-36"><a href="data-and-methodology.html#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-37"><a href="data-and-methodology.html#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">my_data =</span> data)</span>
+<span id="cb6-38"><a href="data-and-methodology.html#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="data-and-methodology.html#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multicore, <span class="at">workers =</span> <span class="dv">6</span>)</span>
+<span id="cb6-40"><a href="data-and-methodology.html#cb6-40" aria-hidden="true" tabindex="-1"></a>bundles <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(site_my_bundle,sitedata_q_bundle) <span class="sc">%&gt;%</span></span>
+<span id="cb6-41"><a href="data-and-methodology.html#cb6-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_data =</span> <span class="fu">future_map2</span>(data,my_data,faster_joinery))</span>
+<span id="cb6-42"><a href="data-and-methodology.html#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-43"><a href="data-and-methodology.html#cb6-43" aria-hidden="true" tabindex="-1"></a>MY <span class="ot">&lt;-</span> bundles <span class="sc">%&gt;%</span> </span>
+<span id="cb6-44"><a href="data-and-methodology.html#cb6-44" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>my_data, <span class="sc">-</span>data) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-45"><a href="data-and-methodology.html#cb6-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(new_data)</span>
+<span id="cb6-46"><a href="data-and-methodology.html#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="data-and-methodology.html#cb6-47" aria-hidden="true" tabindex="-1"></a>MY <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&#39;data/MY.csv&#39;</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-48"><a href="data-and-methodology.html#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="data-and-methodology.html#cb6-49" aria-hidden="true" tabindex="-1"></a>MY_sitedata <span class="ot">&lt;-</span> MY <span class="sc">%&gt;%</span> </span>
+<span id="cb6-50"><a href="data-and-methodology.html#cb6-50" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>WY, <span class="sc">-</span>year)</span>
+<span id="cb6-51"><a href="data-and-methodology.html#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-52"><a href="data-and-methodology.html#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(MY_sitedata, <span class="at">file =</span> <span class="st">&#39;data/my_sitedata.RData&#39;</span>)</span></code></pre></div>
+<p>Once the MY was identified, we ranked and found the probability of exceedance for each discharge value. Flow duration curves (FDC) were constructed by plotting the discharge values against the probability of exceedance for each value per year (Figure 3). The discharge values that fell within 50-90% probability were deemed to be baseflow (Smakhtin, 2001) (Figure 3). Then, we directly correlated peak SWE and the average baseflow values from the same MY. We also compared average baseflow to the previous years’ peak SWE using a 5, 4, 3, 2, 1, and 0-year lag. For example, MY 1980 average baseflow was compared to peak SWE from MY 1975-1980.</p>
+<div class="figure">
+<img src="fig2.png" alt="" />
+<p class="caption">Figure 3: the above figure depicts a sample flow duration curve (FDC) with baseflow isolated in gray. The WY is displayed on the left and the MY is displayed on the right.</p>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-and-methodology.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Rank each day&#39;s q_mmd value by magnitude</span></span>
+<span id="cb7-2"><a href="data-and-methodology.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Find probability of each rank </span></span>
+<span id="cb7-3"><a href="data-and-methodology.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Extract q_mmd values for 0.5-0.9 probability (Qbase for the MY)</span></span>
+<span id="cb7-4"><a href="data-and-methodology.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="data-and-methodology.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&#39;data/my_sitedata.RData&#39;</span>)</span>
+<span id="cb7-6"><a href="data-and-methodology.html#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="data-and-methodology.html#cb7-7" aria-hidden="true" tabindex="-1"></a>fdc <span class="ot">&lt;-</span> MY_sitedata <span class="sc">%&gt;%</span> </span>
+<span id="cb7-8"><a href="data-and-methodology.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no, my) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-9"><a href="data-and-methodology.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">rank</span>(<span class="sc">-</span>q_mmd), </span>
+<span id="cb7-10"><a href="data-and-methodology.html#cb7-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">rankmax =</span> <span class="fu">max</span>(rank),</span>
+<span id="cb7-11"><a href="data-and-methodology.html#cb7-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob =</span> rank<span class="sc">/</span>rankmax) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-12"><a href="data-and-methodology.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(prob <span class="sc">&gt;=</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> prob <span class="sc">&lt;=</span> <span class="fl">0.9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-13"><a href="data-and-methodology.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">avg_qbase =</span> <span class="fu">mean</span>(q_mmd, <span class="at">na.rm =</span> T))</span>
+<span id="cb7-14"><a href="data-and-methodology.html#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="data-and-methodology.html#cb7-15" aria-hidden="true" tabindex="-1"></a>avg_val <span class="ot">&lt;-</span> fdc <span class="sc">%&gt;%</span> </span>
+<span id="cb7-16"><a href="data-and-methodology.html#cb7-16" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(site_no,my,avg_qbase) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-17"><a href="data-and-methodology.html#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(avg_qbase) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-18"><a href="data-and-methodology.html#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&#39;site_no&#39;</span>, <span class="at">values_from =</span> <span class="st">&#39;avg_qbase&#39;</span>)</span></code></pre></div>
+<div class="figure">
+<img src="table2.jpg" alt="" />
+<p class="caption">Table 2: The below table shows the coefficients of variation (COV) for baseflow and peak SWE at each of the station pairs.</p>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-and-methodology.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#correlate fraser WY with MY</span></span>
+<span id="cb8-2"><a href="data-and-methodology.html#cb8-2" aria-hidden="true" tabindex="-1"></a>fraserWY <span class="ot">&lt;-</span> sitedata_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="data-and-methodology.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(site_no <span class="sc">==</span> <span class="st">&quot;09032100&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="data-and-methodology.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(WY) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="data-and-methodology.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">rank</span>(<span class="sc">-</span>q_mmd), </span>
+<span id="cb8-6"><a href="data-and-methodology.html#cb8-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">rankmax =</span> <span class="fu">max</span>(rank),</span>
+<span id="cb8-7"><a href="data-and-methodology.html#cb8-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob =</span> rank<span class="sc">/</span>rankmax) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="data-and-methodology.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(prob <span class="sc">&gt;=</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> prob <span class="sc">&lt;=</span> <span class="fl">0.9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-9"><a href="data-and-methodology.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wyavg_qbase =</span> <span class="fu">mean</span>(q_mmd, <span class="at">na.rm =</span> T))</span>
+<span id="cb8-10"><a href="data-and-methodology.html#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="data-and-methodology.html#cb8-11" aria-hidden="true" tabindex="-1"></a>wyavgfraser <span class="ot">&lt;-</span> fraserWY <span class="sc">%&gt;%</span> </span>
+<span id="cb8-12"><a href="data-and-methodology.html#cb8-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(site_no,WY,wyavg_qbase) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-13"><a href="data-and-methodology.html#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(wyavg_qbase) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-14"><a href="data-and-methodology.html#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pairname =</span> <span class="st">&quot;fraser&quot;</span>)</span>
+<span id="cb8-15"><a href="data-and-methodology.html#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#pivot_wider(names_from = &#39;pairname&#39;, values_from = &#39;wyavg_qbase&#39;)</span></span>
+<span id="cb8-16"><a href="data-and-methodology.html#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="data-and-methodology.html#cb8-17" aria-hidden="true" tabindex="-1"></a>myavgfraser <span class="ot">&lt;-</span> avg_val <span class="sc">%&gt;%</span> </span>
+<span id="cb8-18"><a href="data-and-methodology.html#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(site_no <span class="sc">==</span> <span class="st">&quot;9032100&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-19"><a href="data-and-methodology.html#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pairname =</span> <span class="st">&quot;fraser&quot;</span>, </span>
+<span id="cb8-20"><a href="data-and-methodology.html#cb8-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">WY =</span> my)</span>
+<span id="cb8-21"><a href="data-and-methodology.html#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="data-and-methodology.html#cb8-22" aria-hidden="true" tabindex="-1"></a>fraserjoin <span class="ot">&lt;-</span> wyavgfraser <span class="sc">%&gt;%</span> </span>
+<span id="cb8-23"><a href="data-and-methodology.html#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(<span class="at">y =</span> myavgfraser, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;pairname&quot;</span>,<span class="st">&quot;WY&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-24"><a href="data-and-methodology.html#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-25"><a href="data-and-methodology.html#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb8-26"><a href="data-and-methodology.html#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="data-and-methodology.html#cb8-27" aria-hidden="true" tabindex="-1"></a>frasercorrel <span class="ot">&lt;-</span> fraserjoin <span class="sc">%&gt;%</span></span>
+<span id="cb8-28"><a href="data-and-methodology.html#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">correl =</span> <span class="fu">cor</span>(avg_qbase, wyavg_qbase))</span></code></pre></div>
+<p>Then, we directly correlated peak SWE and the average baseflow values from the same MY. We also compared average baseflow to the previous years’ peak SWE using a 5, 4, 3, 2, 1, and 0-year lag. For example, MY 1980 average baseflow was compared to peak SWE from MY 1975-1980.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-and-methodology.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#download snow data and join to avg baseflow data</span></span>
+<span id="cb9-2"><a href="data-and-methodology.html#cb9-2" aria-hidden="true" tabindex="-1"></a>SNOTEL_all <span class="ot">&lt;-</span> <span class="fu">snotel_download</span>(<span class="at">site_id =</span> <span class="fu">c</span>(<span class="dv">551</span>,<span class="dv">838</span>,<span class="dv">335</span>,<span class="dv">586</span>,<span class="dv">457</span>,<span class="dv">380</span>,<span class="dv">680</span>,<span class="dv">618</span>,<span class="dv">842</span>,<span class="dv">431</span>,<span class="dv">542</span>,<span class="dv">369</span>), <span class="at">path =</span> <span class="fu">tempdir</span>(<span class="st">&#39;../data&#39;</span>), <span class="at">internal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-3"><a href="data-and-methodology.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="data-and-methodology.html#cb9-4" aria-hidden="true" tabindex="-1"></a>sno_clean <span class="ot">&lt;-</span> SNOTEL_all <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="data-and-methodology.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(network, site_id, site_name, snow_water_equivalent, <span class="at">Date =</span> date) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="data-and-methodology.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addWaterYear</span>()</span>
+<span id="cb9-7"><a href="data-and-methodology.html#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="data-and-methodology.html#cb9-8" aria-hidden="true" tabindex="-1"></a>peak_swe <span class="ot">&lt;-</span> sno_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb9-9"><a href="data-and-methodology.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> lubridate<span class="sc">::</span><span class="fu">ymd</span>(Date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-10"><a href="data-and-methodology.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_id, waterYear) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-11"><a href="data-and-methodology.html#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">max_swe =</span> <span class="fu">max</span>(snow_water_equivalent, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-12"><a href="data-and-methodology.html#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(max_swe <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-13"><a href="data-and-methodology.html#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">my =</span> waterYear)</span>
+<span id="cb9-14"><a href="data-and-methodology.html#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="data-and-methodology.html#cb9-15" aria-hidden="true" tabindex="-1"></a>stationcodes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;data/stationcodes.csv&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-16"><a href="data-and-methodology.html#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">site_no =</span> <span class="fu">str_replace_all</span>(site_no, <span class="st">&#39;&quot;&#39;</span>,<span class="st">&#39;&#39;</span>))</span>
+<span id="cb9-17"><a href="data-and-methodology.html#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="data-and-methodology.html#cb9-18" aria-hidden="true" tabindex="-1"></a>avgbase_join <span class="ot">&lt;-</span> avg_val <span class="sc">%&gt;%</span> </span>
+<span id="cb9-19"><a href="data-and-methodology.html#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;0&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;site_no&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;q_mmd&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-20"><a href="data-and-methodology.html#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(stationcodes, <span class="at">by =</span> <span class="st">&quot;site_no&quot;</span>)</span>
+<span id="cb9-21"><a href="data-and-methodology.html#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="data-and-methodology.html#cb9-22" aria-hidden="true" tabindex="-1"></a>big_join <span class="ot">&lt;-</span> avgbase_join <span class="sc">%&gt;%</span> </span>
+<span id="cb9-23"><a href="data-and-methodology.html#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(peak_swe, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;site_id&quot;</span>,<span class="st">&quot;my&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-24"><a href="data-and-methodology.html#cb9-24" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>waterYear)</span></code></pre></div>
+<p>The peak SWE values were sorted into low, average, and high snow years using a histogram separating the bins by 0.5 standard deviations from the mean. A multivariate regression was run on average baseflow values with the intercept being a 0–5-year lag to peak SWE. This was calculated for low, high and all snow years. Covariance was calculated for the same parameters as well. Finally, the standard deviation and coefficient of variation (COV) of the average baseflow and peak SWE were calculated for each station pair. The COV was calculated by dividing the standard deviation by the mean for both baseflow and peak SWE.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-and-methodology.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Correlate MY vs peak SWE all years (0–5-year lags)</span></span>
+<span id="cb10-2"><a href="data-and-methodology.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Separate low and high snow years using 0.5 std. dev. from mean</span></span>
+<span id="cb10-3"><a href="data-and-methodology.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Run direct correlation for individual years from 0 to 5-year lags for all years, then low and high snow years</span></span>
+<span id="cb10-4"><a href="data-and-methodology.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="data-and-methodology.html#cb10-5" aria-hidden="true" tabindex="-1"></a>big_join <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&#39;data/readyforcorrel.csv&#39;</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-6"><a href="data-and-methodology.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="data-and-methodology.html#cb10-7" aria-hidden="true" tabindex="-1"></a>lags <span class="ot">&lt;-</span> big_join <span class="sc">%&gt;%</span> </span>
+<span id="cb10-8"><a href="data-and-methodology.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(paircode) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-9"><a href="data-and-methodology.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">swelag1 =</span> <span class="fu">lag</span>(max_swe, <span class="at">order_by =</span> my),</span>
+<span id="cb10-10"><a href="data-and-methodology.html#cb10-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">swelag2 =</span> <span class="fu">lag</span>(swelag1, <span class="at">order_by =</span> my),</span>
+<span id="cb10-11"><a href="data-and-methodology.html#cb10-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">swelag3 =</span> <span class="fu">lag</span>(swelag2, <span class="at">order_by =</span> my),</span>
+<span id="cb10-12"><a href="data-and-methodology.html#cb10-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">swelag4 =</span> <span class="fu">lag</span>(swelag3, <span class="at">order_by =</span> my),</span>
+<span id="cb10-13"><a href="data-and-methodology.html#cb10-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">swelag5 =</span> <span class="fu">lag</span>(swelag4, <span class="at">order_by =</span> my))</span>
+<span id="cb10-14"><a href="data-and-methodology.html#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="data-and-methodology.html#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#correlation between all snow years and avg baseflow</span></span>
+<span id="cb10-16"><a href="data-and-methodology.html#cb10-16" aria-hidden="true" tabindex="-1"></a>all <span class="ot">&lt;-</span> lags <span class="sc">%&gt;%</span></span>
+<span id="cb10-17"><a href="data-and-methodology.html#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no,site_id, pairname) <span class="sc">%&gt;%</span></span>
+<span id="cb10-18"><a href="data-and-methodology.html#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb10-19"><a href="data-and-methodology.html#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lag0 =</span> <span class="fu">cor</span>(max_swe, q_mmd),</span>
+<span id="cb10-20"><a href="data-and-methodology.html#cb10-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag1 =</span> <span class="fu">cor</span>(swelag1, q_mmd),</span>
+<span id="cb10-21"><a href="data-and-methodology.html#cb10-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag2 =</span> <span class="fu">cor</span>(swelag2, q_mmd),</span>
+<span id="cb10-22"><a href="data-and-methodology.html#cb10-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag3 =</span> <span class="fu">cor</span>(swelag3, q_mmd),</span>
+<span id="cb10-23"><a href="data-and-methodology.html#cb10-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag4 =</span> <span class="fu">cor</span>(swelag4, q_mmd),</span>
+<span id="cb10-24"><a href="data-and-methodology.html#cb10-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag5 =</span> <span class="fu">cor</span>(swelag5, q_mmd))</span>
+<span id="cb10-25"><a href="data-and-methodology.html#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="data-and-methodology.html#cb10-26" aria-hidden="true" tabindex="-1"></a>longsnowcore <span class="ot">&lt;-</span> all <span class="sc">%&gt;%</span> </span>
+<span id="cb10-27"><a href="data-and-methodology.html#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;lag&quot;</span>),<span class="at">values_to =</span> <span class="st">&quot;correl&quot;</span>, <span class="at">names_to =</span> <span class="st">&quot;lag&quot;</span>)</span>
+<span id="cb10-28"><a href="data-and-methodology.html#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="data-and-methodology.html#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co">#correlation between high snow years and avg baseflow</span></span>
+<span id="cb10-30"><a href="data-and-methodology.html#cb10-30" aria-hidden="true" tabindex="-1"></a>snow_hi_lo <span class="ot">&lt;-</span> lags <span class="sc">%&gt;%</span></span>
+<span id="cb10-31"><a href="data-and-methodology.html#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pairname) <span class="sc">%&gt;%</span></span>
+<span id="cb10-32"><a href="data-and-methodology.html#cb10-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(.) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-33"><a href="data-and-methodology.html#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quants =</span> <span class="fu">ifelse</span>(max_swe <span class="sc">&gt;</span> <span class="fu">mean</span>(max_swe) <span class="sc">+</span> <span class="fu">sd</span>(max_swe)<span class="sc">*</span>.<span class="dv">5</span>, <span class="st">&#39;hi&#39;</span>,<span class="st">&#39;avg&#39;</span>),</span>
+<span id="cb10-34"><a href="data-and-methodology.html#cb10-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">quants =</span> <span class="fu">ifelse</span>(max_swe <span class="sc">&lt;</span> <span class="fu">mean</span>(max_swe) <span class="sc">-</span> <span class="fu">sd</span>(max_swe)<span class="sc">*</span>.<span class="dv">5</span>,<span class="st">&#39;lo&#39;</span>,quants))</span>
+<span id="cb10-35"><a href="data-and-methodology.html#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-36"><a href="data-and-methodology.html#cb10-36" aria-hidden="true" tabindex="-1"></a>high <span class="ot">&lt;-</span> snow_hi_lo <span class="sc">%&gt;%</span></span>
+<span id="cb10-37"><a href="data-and-methodology.html#cb10-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no,site_id, pairname) <span class="sc">%&gt;%</span></span>
+<span id="cb10-38"><a href="data-and-methodology.html#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb10-39"><a href="data-and-methodology.html#cb10-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(quants <span class="sc">==</span> <span class="st">&quot;hi&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-40"><a href="data-and-methodology.html#cb10-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lag0 =</span> <span class="fu">cor</span>(max_swe, q_mmd),</span>
+<span id="cb10-41"><a href="data-and-methodology.html#cb10-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag1 =</span> <span class="fu">cor</span>(swelag1, q_mmd),</span>
+<span id="cb10-42"><a href="data-and-methodology.html#cb10-42" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag2 =</span> <span class="fu">cor</span>(swelag2, q_mmd),</span>
+<span id="cb10-43"><a href="data-and-methodology.html#cb10-43" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag3 =</span> <span class="fu">cor</span>(swelag3, q_mmd),</span>
+<span id="cb10-44"><a href="data-and-methodology.html#cb10-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag4 =</span> <span class="fu">cor</span>(swelag4, q_mmd),</span>
+<span id="cb10-45"><a href="data-and-methodology.html#cb10-45" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag5 =</span> <span class="fu">cor</span>(swelag5, q_mmd))</span>
+<span id="cb10-46"><a href="data-and-methodology.html#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-47"><a href="data-and-methodology.html#cb10-47" aria-hidden="true" tabindex="-1"></a>longhigh <span class="ot">&lt;-</span> high <span class="sc">%&gt;%</span> </span>
+<span id="cb10-48"><a href="data-and-methodology.html#cb10-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;lag&quot;</span>),<span class="at">values_to =</span> <span class="st">&quot;correl&quot;</span>, <span class="at">names_to =</span> <span class="st">&quot;lag&quot;</span>)</span>
+<span id="cb10-49"><a href="data-and-methodology.html#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-50"><a href="data-and-methodology.html#cb10-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-51"><a href="data-and-methodology.html#cb10-51" aria-hidden="true" tabindex="-1"></a><span class="co">#correlation between low snow years and avg baseflow</span></span>
+<span id="cb10-52"><a href="data-and-methodology.html#cb10-52" aria-hidden="true" tabindex="-1"></a>low <span class="ot">&lt;-</span> snow_hi_lo <span class="sc">%&gt;%</span></span>
+<span id="cb10-53"><a href="data-and-methodology.html#cb10-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no,site_id, pairname) <span class="sc">%&gt;%</span></span>
+<span id="cb10-54"><a href="data-and-methodology.html#cb10-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb10-55"><a href="data-and-methodology.html#cb10-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(quants <span class="sc">==</span> <span class="st">&quot;lo&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-56"><a href="data-and-methodology.html#cb10-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lag0 =</span> <span class="fu">cor</span>(max_swe, q_mmd),</span>
+<span id="cb10-57"><a href="data-and-methodology.html#cb10-57" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag1 =</span> <span class="fu">cor</span>(swelag1, q_mmd),</span>
+<span id="cb10-58"><a href="data-and-methodology.html#cb10-58" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag2 =</span> <span class="fu">cor</span>(swelag2, q_mmd),</span>
+<span id="cb10-59"><a href="data-and-methodology.html#cb10-59" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag3 =</span> <span class="fu">cor</span>(swelag3, q_mmd),</span>
+<span id="cb10-60"><a href="data-and-methodology.html#cb10-60" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag4 =</span> <span class="fu">cor</span>(swelag4, q_mmd),</span>
+<span id="cb10-61"><a href="data-and-methodology.html#cb10-61" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag5 =</span> <span class="fu">cor</span>(swelag5, q_mmd))</span>
+<span id="cb10-62"><a href="data-and-methodology.html#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-63"><a href="data-and-methodology.html#cb10-63" aria-hidden="true" tabindex="-1"></a>longlow <span class="ot">&lt;-</span> low <span class="sc">%&gt;%</span> </span>
+<span id="cb10-64"><a href="data-and-methodology.html#cb10-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;lag&quot;</span>),<span class="at">values_to =</span> <span class="st">&quot;correl&quot;</span>, <span class="at">names_to =</span> <span class="st">&quot;lag&quot;</span>)</span>
+<span id="cb10-65"><a href="data-and-methodology.html#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-66"><a href="data-and-methodology.html#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-67"><a href="data-and-methodology.html#cb10-67" aria-hidden="true" tabindex="-1"></a><span class="co">#find covariance between peak SWE and avg baseflow for all, high and low snow years</span></span>
+<span id="cb10-68"><a href="data-and-methodology.html#cb10-68" aria-hidden="true" tabindex="-1"></a>allcov <span class="ot">&lt;-</span> lags <span class="sc">%&gt;%</span> </span>
+<span id="cb10-69"><a href="data-and-methodology.html#cb10-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no,site_id, pairname) <span class="sc">%&gt;%</span></span>
+<span id="cb10-70"><a href="data-and-methodology.html#cb10-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb10-71"><a href="data-and-methodology.html#cb10-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lag0 =</span> <span class="fu">cov</span>(max_swe, q_mmd),</span>
+<span id="cb10-72"><a href="data-and-methodology.html#cb10-72" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag1 =</span> <span class="fu">cov</span>(swelag1, q_mmd),</span>
+<span id="cb10-73"><a href="data-and-methodology.html#cb10-73" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag2 =</span> <span class="fu">cov</span>(swelag2, q_mmd),</span>
+<span id="cb10-74"><a href="data-and-methodology.html#cb10-74" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag3 =</span> <span class="fu">cov</span>(swelag3, q_mmd),</span>
+<span id="cb10-75"><a href="data-and-methodology.html#cb10-75" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag4 =</span> <span class="fu">cov</span>(swelag4, q_mmd),</span>
+<span id="cb10-76"><a href="data-and-methodology.html#cb10-76" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag5 =</span> <span class="fu">cov</span>(swelag5, q_mmd))</span>
+<span id="cb10-77"><a href="data-and-methodology.html#cb10-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-78"><a href="data-and-methodology.html#cb10-78" aria-hidden="true" tabindex="-1"></a>highcov <span class="ot">&lt;-</span> snow_hi_lo <span class="sc">%&gt;%</span></span>
+<span id="cb10-79"><a href="data-and-methodology.html#cb10-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no,site_id, pairname) <span class="sc">%&gt;%</span></span>
+<span id="cb10-80"><a href="data-and-methodology.html#cb10-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb10-81"><a href="data-and-methodology.html#cb10-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(quants <span class="sc">==</span> <span class="st">&quot;hi&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-82"><a href="data-and-methodology.html#cb10-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lag0 =</span> <span class="fu">cov</span>(max_swe, q_mmd),</span>
+<span id="cb10-83"><a href="data-and-methodology.html#cb10-83" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag1 =</span> <span class="fu">cov</span>(swelag1, q_mmd),</span>
+<span id="cb10-84"><a href="data-and-methodology.html#cb10-84" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag2 =</span> <span class="fu">cov</span>(swelag2, q_mmd),</span>
+<span id="cb10-85"><a href="data-and-methodology.html#cb10-85" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag3 =</span> <span class="fu">cov</span>(swelag3, q_mmd),</span>
+<span id="cb10-86"><a href="data-and-methodology.html#cb10-86" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag4 =</span> <span class="fu">cov</span>(swelag4, q_mmd),</span>
+<span id="cb10-87"><a href="data-and-methodology.html#cb10-87" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag5 =</span> <span class="fu">cov</span>(swelag5, q_mmd))</span>
+<span id="cb10-88"><a href="data-and-methodology.html#cb10-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-89"><a href="data-and-methodology.html#cb10-89" aria-hidden="true" tabindex="-1"></a>lowcov <span class="ot">&lt;-</span> snow_hi_lo <span class="sc">%&gt;%</span></span>
+<span id="cb10-90"><a href="data-and-methodology.html#cb10-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site_no,site_id, pairname) <span class="sc">%&gt;%</span></span>
+<span id="cb10-91"><a href="data-and-methodology.html#cb10-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb10-92"><a href="data-and-methodology.html#cb10-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(quants <span class="sc">==</span> <span class="st">&quot;lo&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-93"><a href="data-and-methodology.html#cb10-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lag0 =</span> <span class="fu">cov</span>(max_swe, q_mmd),</span>
+<span id="cb10-94"><a href="data-and-methodology.html#cb10-94" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag1 =</span> <span class="fu">cov</span>(swelag1, q_mmd),</span>
+<span id="cb10-95"><a href="data-and-methodology.html#cb10-95" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag2 =</span> <span class="fu">cov</span>(swelag2, q_mmd),</span>
+<span id="cb10-96"><a href="data-and-methodology.html#cb10-96" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag3 =</span> <span class="fu">cov</span>(swelag3, q_mmd),</span>
+<span id="cb10-97"><a href="data-and-methodology.html#cb10-97" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag4 =</span> <span class="fu">cov</span>(swelag4, q_mmd),</span>
+<span id="cb10-98"><a href="data-and-methodology.html#cb10-98" aria-hidden="true" tabindex="-1"></a>            <span class="at">lag5 =</span> <span class="fu">cov</span>(swelag5, q_mmd))</span></code></pre></div>
+<p>The Fraser sites were used as a case study to examen the results on a small signular basin scale.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-and-methodology.html#cb11-1" aria-hidden="true" tabindex="-1"></a>fraser <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&#39;data/readyforcorrel.csv&#39;</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-2"><a href="data-and-methodology.html#cb11-2" aria-hidden="true" tabindex="-1"></a>highsno <span class="ot">&lt;-</span> <span class="fu">mean</span>(fraser<span class="sc">$</span>max_swe) <span class="sc">+</span> <span class="fu">sd</span>(fraser<span class="sc">$</span>max_swe)<span class="sc">*</span><span class="fl">0.5</span></span>
+<span id="cb11-3"><a href="data-and-methodology.html#cb11-3" aria-hidden="true" tabindex="-1"></a>lowsno <span class="ot">&lt;-</span> <span class="fu">mean</span>(fraser<span class="sc">$</span>max_swe) <span class="sc">-</span> <span class="fu">sd</span>(fraser<span class="sc">$</span>max_swe)<span class="sc">*</span><span class="fl">0.5</span></span>
+<span id="cb11-4"><a href="data-and-methodology.html#cb11-4" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(fraser<span class="sc">$</span>max_swe)</span></code></pre></div>
+<p>Basin characteristics like drainage area, elevation, and latitude were then examined with respect to the results from the correlation between peak SWE and baseflow as well as the contrast between 0-5-year lags.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-methods.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,7 +1,10 @@
 overview
-render-book
 abstract
 intro
+objectives
+data-and-methodology
+data
 methods
 results
 discussion
+conclusion

@@ -1,2 +1,15 @@
 # References {-}
 
+Cooper, M. G., Schaperow, J. R., Cooley, S. W., Alam, S., Smith, L. C., & Lettenmaier, D. P. (2018). Climate elasticity of low flows in the Maritime Western U.S. Mountains. Water Resources Research, 54(8), 5602–5619. https://doi.org/10.1029/2018wr022816 
+
+Dierauer, J. R., Whitfield, P. H., & Allen, D. M. (2018). Climate Controls on runoff and low flows in mountain catchments of western North America. Water Resources Research, 54(10), 7495–7510. https://doi.org/10.1029/2018wr023087 
+
+Fassnacht, S. R., and J. E. Derry (2010), Defining similar regions of snow in the Colorado River Basin using self‐organizing maps, Water Resour. Res., 46, W04507, doi:10.1029/2009WR007835. 
+
+Godsey, S. E., Kirchner, J. W., & Tague, C. L. (2013). Effects of changes in winter snowpacks on Summer low flows: Case studies in the sierra Nevada, California, USA. Hydrological Processes, 28(19), 5048–5064. https://doi.org/10.1002/hyp.9943 
+
+Hammond, J. C., & Kampf, S. K. (2020). Subannual streamflow responses to rainfall and snowmelt inputs in snow‐dominated watersheds of the Western United States. Water Resources Research, 56(4). https://doi.org/10.1029/2019wr026132 
+
+Miller, M. P., Susong, D. D., Shope, C. L., Heilweil, V. M., and Stolp, B. J. (2014), Continuous estimation of baseflow in snowmelt-dominated streams and rivers in the Upper Colorado River Basin: A chemical hydrograph separation approach, Water Resour. Res., 50, 6986– 6999, doi:10.1002/2013WR014939. 
+
+Smakhtin, V. U. (2001). Low flow hydrology: A Review. Journal of Hydrology, 240(3-4), 147–186. https://doi.org/10.1016/s0022-1694(00)00340-1 
