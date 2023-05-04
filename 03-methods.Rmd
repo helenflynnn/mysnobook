@@ -27,7 +27,7 @@ library(raster)
 
 ## Data
 
-To analyze the correlation between peak SWE and baseflow, discharge data from 13 USGS gauges in the Southern Rockies of Colorado were examined from October 1st, 1979, to September 30th, 2022. Stations with greater than ten percent missing data during the time period were excluded. The drainage basins that contain each stream gauge vary in latitude, elevation and area (Table 1). Each stream gauge was paired with an NRCS SNOTEL station within or just outside the drainage basin (Table 1). When the nearest SNOTEL station was lacking data, another nearby station was selected based on the clusters defined by Fassnacht and Derry (2010). Peak SWE data from the SNOTEL stations were used.  
+Twelve streamflow stations were used to analyze the correlation between peak SWE and baseflow in the Southern Rockies of Colorado were examined from October 1st, 1979, to September 30th, 2022. Daily streamflow data were obtained from US Geological Survey (). Stations with greater than ten percent missing data during the time period were excluded. The drainage basins that contain each stream gauge vary in latitude, elevation (2100 – 3180 m) and area (4-730 km2) (Table 1). Each stream gauge was paired with an NRCS SNOTEL station within or just outside the drainage basin (Table 1). When the nearest SNOTEL station was lacking data, another nearby station was selected based on the clusters defined by Fassnacht and Derry (2010). From the daily time series of SWE, the peak SWE was extracted for each year, for each SNOTEL station.  
 
 ![Table 1: the USGS and SNOTEL station pairs in order of northern-most latitude to southern-most.](~/WR440/mysnobook/tab1.jpg)
 
@@ -103,7 +103,7 @@ tm_shape(usgs_sf) +
 
 ## Methods 
 
-In snow dominated watersheds, the hydrograph demonstrates a large peak occurring at the onset of melt that eventually levels off at lower values for most of the rest of the year. The traditional water year (WY, in the US October 1 through September 30) separates peak melt and baseflow into two different WYs. To reflect the hydrologic processes that are occurring in snow-dominated watersheds, we propose using a melt year (MY) beginning with the onset of snowmelt (the first deviation from baseflow) and ending with the onset of the following year’s snowmelt (Figure 2). The beginning of the MY was defined as the day at which the rate of increase in discharge changes.    
+In snow dominated watersheds, the hydrograph demonstrates a large peak occurring at the onset of melt that eventually recedes to an almost constant lower values for most of the rest of the year (Figure 1). The traditional WY separates peak melt and baseflow into two different WYs (grey in Figure 1). To reflect the hydrologic processes that are occurring in snow-dominated watersheds, we propose using a melt year (MY) beginning with the onset of snowmelt and ending with the onset of the following year’s snowmelt (Figure 1). The beginning of the MY was defined as the day at which the rate of increase in streamflow changes and defined from a specific increase in the cumulative streamflow, as presented by Pfohl and Fassnacht (2023).      
 
 ```{r,warning= F, message = FALSE}
 avg_val <- read_csv(file = 'data/avg_val.csv', col_names = TRUE)
@@ -167,11 +167,11 @@ ggplot(snobox2, aes(x=pairname)) +
         legend.key = element_rect(fill = "white"),
         legend.justification = c("right", "top"),
         legend.position = c(.98, .98))+
-  labs(caption = "Figure 2: The above figure depicts the variance in average baseflow on \n the left y-axis and the variance in peak SWE on the right y-axis across the station pairs.")+
+  labs(caption = "Figure 2: The variation in average baseflow (left y-axis) and peak SWE (right y-axis) for the station pairs examined in this study. ")+
 theme(plot.caption = element_text(hjust = 0.5))
 ```
 
-To find the onset of melt, the cumulative sum of the runoff was calculated for each water year. Using the cumulative sum, the onset of melt was selected as the first day when the daily slope was K times greater than the baseflow slope. The constant K was determined to be 6 after testing other values in order to ensure that an onset of melt date was selected for a reasonable time frame. The baseflow slope was calculated between January 1 and March 31.  
+To find the onset of melt, the cumulative sum of the runoff was calculated for each water year. Using the cumulative sum, the onset of melt was selected as the first day when the daily slope was K times greater than the baseflow slope (Pfohl and Fassnacht, 2023). The constant K was determined to be 6 after testing other values to ensure that an onset of melt date was selected for a reasonable time frame, based on manual identification of the onset of melt. The baseflow slope was calculated between January 1 and March 31.    
 
 ```{r, warning= F, message = FALSE}
 #create empty df to store MY results
@@ -276,9 +276,9 @@ MY_sitedata <- MY %>%
 save(MY_sitedata, file = 'data/my_sitedata.RData')
 ```
 
-Once the MY was identified, we ranked and found the probability of exceedance for each discharge value. Flow duration curves (FDC) were constructed by plotting the discharge values against the probability of exceedance for each value per year (Figure 3). The discharge values that fell within 50-90% probability were deemed to be baseflow (Smakhtin, 2001) (Figure 3).  Then, we directly correlated peak SWE and the average baseflow values from the same MY. We also compared average baseflow to the previous years’ peak SWE using a 5, 4, 3, 2, 1, and 0-year lag. For example, MY 1980 average baseflow was compared to peak SWE from MY 1975-1980. 	
+Once the MY was identified, we ranked and found the probability of exceedance for each streamflow value. Flow duration curves (FDC) were constructed by plotting streamflow versus the probability of exceedance for each value per year (Figure 3). The mean streamflow within 50-90% probability was deemed to be annual baseflow (Smakhtin, 2001) (Figure 3).   	
 
-![Figure 3: the above figure depicts a sample flow duration curve (FDC) with baseflow isolated in gray. The WY is displayed on the left and the MY is displayed on the right.  ](~/WR440/mysnobook/fig2.png)
+![Figure 3:  A sample sequence of three consecutive flow duration curves (FDC) with baseflow isolated in gray, using a) the water year (WY), and b) the melt year (MY).   ](~/WR440/mysnobook/fig2.png)
 
 ```{r,warning= F, message = FALSE}
 #Rank each day's q_mmd value by magnitude
@@ -303,7 +303,7 @@ avg_val <- fdc %>%
 
 
 
-![Table 2: The below table shows the coefficients of variation (COV) for baseflow and peak SWE at each of the station pairs.](~/WR440/mysnobook/table2.jpg)
+![Table 1: Summary of the study sites, presenting the streamflow (USGS) paired snow (SNOTEL) stations in order of latitude (north to south).  ](~/WR440/mysnobook/tab1.jpg)
 
 ```{r,warning= F, message = FALSE, eval = FALSE}
 #correlate fraser WY with MY
@@ -336,7 +336,7 @@ frasercorrel <- fraserjoin %>%
   summarize(correl = cor(avg_qbase, wyavg_qbase))
 ```
 
-Then, we directly correlated peak SWE and the average baseflow values from the same MY. We also compared average baseflow to the previous years’ peak SWE using a 5, 4, 3, 2, 1, and 0-year lag. For example, MY 1980 average baseflow was compared to peak SWE from MY 1975-1980. 
+Then, we correlated annual peak SWE and the annual average baseflow values from the same MY. We also compared average baseflow to the previous years’ peak SWE lag years from 0 to 5. For example, MY 1980 average baseflow was compared to peak SWE from MY 1975 (lag of 5 years) through –1980 (lag of 0 years).
 
 ```{r, eval = F, warning= F, message = FALSE}
 #download snow data and join to avg baseflow data
@@ -366,7 +366,7 @@ big_join <- avgbase_join %>%
 
 ```
 
-The peak SWE values were sorted into low, average, and high snow years using a histogram separating the bins by 0.5 standard deviations from the mean. A multivariate regression was run on average baseflow values with the intercept being a 0–5-year lag to peak SWE. This was calculated for low, high and all snow years. Covariance was calculated for the same parameters as well. Finally, the standard deviation and coefficient of variation (COV) of the average baseflow and peak SWE were calculated for each station pair. The COV was calculated by dividing the standard deviation by the mean for both baseflow and peak SWE. 
+The peak SWE values were divided into low, average, and high snow years by considering +/- 0.5 standard deviations from the mean. After the individual regressions, multivariate regression was performed between average baseflow values and peak SWE lags from 0 to 5 years. This was calculated for low, high and all snow years. Finally, the standard deviation and coefficient of variation (COV) of the average baseflow and peak SWE were calculated for each station pair. The COV was calculated by dividing the standard deviation by the mean for both baseflow and peak SWE. 
 
 ```{r, warning= F, message = FALSE}
 #Correlate MY vs peak SWE all years (0–5-year lags)
